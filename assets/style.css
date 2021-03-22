@@ -1,0 +1,15 @@
+#header {
+  width: 100%;
+  text-align: center;  
+  background-color: rgb(58, 58, 65);
+  padding: 10px;
+  color: white;  
+}
+
+#searchBtn {
+    background-color: rgb(56, 141, 238);
+}
+
+#currentWeatherBlock {
+    margin-top: 30px;
+}

@@ -1,5 +1,5 @@
 var location;
- 
+var currentTemp
 var humidity;
 var windSpeed
 var UvIndex
@@ -13,9 +13,8 @@ function getWeather() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      console.log(data.main.temp)
-      var currentTemp = data.main.temp
+      currentTemp = data.main.temp
+      console.log(currentTemp)
     })
     
   }; getWeather()

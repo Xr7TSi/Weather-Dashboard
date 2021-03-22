@@ -13,3 +13,9 @@
 #currentWeatherBlock {
     margin-top: 30px;
 }
+
+.forecastBlock {
+    background-color: rgb(56, 141, 238);
+    color: white;  
+    padding: 10px;
+}

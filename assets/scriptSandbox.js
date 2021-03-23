@@ -34,34 +34,49 @@ searchBtn.on('click', function () {
 });
 
 
-function getWeather() {
-  
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCityLs;
+// function getWeather() {
+//     var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCityLs;
 
-    fetch(requestUrl) 
+//     fetch(weatherUrl) 
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       // console.log(data)
+//       currentTemp = data.main.temp.toFixed(1);
+//       currentHumid = data.main.humidity;
+//       currentWind = data.wind.speed;
+//       // currentUv =
+//       // currentIcon = data.weather[0].icon;
+//       // console.log(currentIcon);
+      
+//       showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
+//       showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
+//       showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
+//       // showCurrentUv.textContent = "UV Index: "
+//       // showCurrentIcon.textContent = currentIcon;
+      
+//     })
+//   }; getWeather()
+
+
+  function getForecast() {
+    // var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&appid=279105e2e4e9e82f777d589c68abec56=' + selectedCityLs;
+  
+    var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=atlanta&appid=279105e2e4e9e82f777d589c68abec56';
+
+    fetch(forecastUrl) 
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data)
-      currentTemp = data.main.temp.toFixed(1);
-      currentHumid = data.main.humidity;
-      currentWind = data.wind.speed;
-      // currentUv =
-      // currentIcon = data.weather[0].icon;
-      // console.log(currentIcon);
-      
-  
-      showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
-      showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
-      showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
-      // showCurrentUv.textContent = "UV Index: "
-      // showCurrentIcon.textContent = currentIcon;
       
     })
-  }; getWeather()
+  }; getForecast()
 
 
 
-// key = 4b37cdd7653dfc3582c009509a56e3eb
+// getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
+// getForecast api key = 279105e2e4e9e82f777d589c68abec56
 

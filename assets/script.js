@@ -1,4 +1,4 @@
-var location;
+
 // current weather variables
 var currentTemp;
 var currentHumid;
@@ -22,6 +22,8 @@ var dayFourHumid;
 var dayFiveTempH;
 var dayFiveTempL;
 var dayFiveHumid;
+
+var location;
 var date;
 var searchValues = []
 
@@ -35,7 +37,7 @@ var showCurrentWind = document.getElementById("showCurrentWind");
 var showCurrentIcon = document.getElementById("showCurrentIcon")
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
-var selectedCity;
+
 
 
   setInterval(function(){
@@ -47,16 +49,20 @@ var selectedCity;
 // gets user input from search for city field and sets to local storage
 searchBtn.on('click', function () {
   var selectedCity = $("#citySearch").val();
-  localStorage.setItem("citySearch", JSON.stringify(selectedCity));
+
   selectedCityLs = JSON.parse(localStorage.getItem("citySearch"));
+
   showCity.textContent = selectedCityLs;
 
+  localStorage.setItem("citySearch", JSON.stringify(selectedCity));
+
   for (var i = 0; i <= searchValues.length; i++) {
-  var ul = document.createElement("ul");
-  ul.textContent = selectedCity;
-  ul.setAttribute("data-index", i);
-  searchHist.appendChild(ul);
-  }
+    var ul = document.createElement("ul");
+    ul.textContent = selectedCity;
+    // possible set attribute to make these buttons
+    searchHist.appendChild(ul);
+    }
+
   
   function getWeather() {
       var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCityLs;
@@ -130,7 +136,6 @@ searchBtn.on('click', function () {
         showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";
       })
     }; getForecast()
-
 });
 
 

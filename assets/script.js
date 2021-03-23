@@ -1,9 +1,28 @@
 var location;
+// current weather variables
 var currentTemp;
 var currentHumid;
 var currentWind;
 var currentUv;
 var currentIcon;
+
+// forecast variables
+var dayOneTempH;
+var dayOneTempL;
+var dayOneHumid;
+var dayTwoTempH;
+var dayTwoTempL;
+var dayTwoHumid;
+var dayThreeTempH;
+var dayThreeTempL;
+var dayThreeHumid;
+var dayFourTempH;
+var dayFourTempL;
+var dayFourHumid;
+var dayFiveTempH;
+var dayFiveTempL;
+var dayFiveHumid;
+
 
 var showCityDate = document.getElementById("showCityDate");
 var showCurrentTemp = document.getElementById("showCurrentTemp");
@@ -34,36 +53,34 @@ searchBtn.on('click', function () {
 });
 
 
-// function getWeather() {
-//     var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCityLs;
+function getWeather() {
+    var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCityLs;
 
-//     fetch(weatherUrl) 
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       // console.log(data)
-//       currentTemp = data.main.temp.toFixed(1);
-//       currentHumid = data.main.humidity;
-//       currentWind = data.wind.speed;
-//       // currentUv =
-//       // currentIcon = data.weather[0].icon;
-//       // console.log(currentIcon);
+    fetch(weatherUrl) 
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      // console.log(data)
+      currentTemp = data.main.temp.toFixed(1);
+      currentHumid = data.main.humidity;
+      currentWind = data.wind.speed;
+      // currentUv =
+      // currentIcon = data.weather[0].icon;
+      // console.log(currentIcon);
       
-//       showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
-//       showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
-//       showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
-//       // showCurrentUv.textContent = "UV Index: "
-//       // showCurrentIcon.textContent = currentIcon;
+      showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
+      showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
+      showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
+      // showCurrentUv.textContent = "UV Index: "
+      // showCurrentIcon.textContent = currentIcon;
       
-//     })
-//   }; getWeather()
+    })
+  }; getWeather()
 
 
   function getForecast() {
-    // var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&appid=279105e2e4e9e82f777d589c68abec56=' + selectedCityLs;
-  
-    var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=atlanta&appid=279105e2e4e9e82f777d589c68abec56';
+    var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=279105e2e4e9e82f777d589c68abec56&q=' + selectedCityLs;
 
     fetch(forecastUrl) 
     .then(function (response) {
@@ -71,7 +88,25 @@ searchBtn.on('click', function () {
     })
     .then(function (data) {
       console.log(data)
-      
+      dayOneTempH = data.list[0].main.temp_max.toFixed(0);
+      dayOneTempL = data.list[0].main.temp_min.toFixed(0);
+      dayOneHumid = data.list[0].main.humidity;
+
+      dayTwoTempH = data.list[1].main.temp_max.toFixed(0);
+      dayTwoTempL = data.list[1].main.temp_min.toFixed(0);
+      dayTwoHumid = data.list[1].main.humidity;
+
+      dayThreeTempH = data.list[2].main.temp_max.toFixed(0);
+      dayThreeTempL = data.list[2].main.temp_min.toFixed(0);
+      dayThreeHumid = data.list[2].main.humidity;
+
+      dayFourTempH = data.list[3].main.temp_max.toFixed(0);
+      dayFourTempL = data.list[3].main.temp_min.toFixed(0);
+      dayFourHumid = data.list[3].main.humidity;
+
+      dayFiveTempH = data.list[4].main.temp_max.toFixed(0);
+      dayFiveTempL = data.list[4].main.temp_min.toFixed(0);
+      dayFiveHumid = data.list[4].main.humidity;
     })
   }; getForecast()
 

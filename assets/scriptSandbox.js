@@ -74,7 +74,6 @@ function getWeather() {
       showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
       // showCurrentUv.textContent = "UV Index: "
       // showCurrentIcon.textContent = currentIcon;
-      
     })
   }; getWeather()
 
@@ -88,25 +87,45 @@ function getWeather() {
     })
     .then(function (data) {
       console.log(data)
-      dayOneTempH = data.list[0].main.temp_max.toFixed(0);
-      dayOneTempL = data.list[0].main.temp_min.toFixed(0);
+      dayOneH = data.list[0].main.temp_max.toFixed(0);
+      dayOneL = data.list[0].main.temp_min.toFixed(0);
       dayOneHumid = data.list[0].main.humidity;
 
-      dayTwoTempH = data.list[1].main.temp_max.toFixed(0);
-      dayTwoTempL = data.list[1].main.temp_min.toFixed(0);
+      dayTwoH = data.list[1].main.temp_max.toFixed(0);
+      dayTwoL = data.list[1].main.temp_min.toFixed(0);
       dayTwoHumid = data.list[1].main.humidity;
 
-      dayThreeTempH = data.list[2].main.temp_max.toFixed(0);
-      dayThreeTempL = data.list[2].main.temp_min.toFixed(0);
+      dayThreeH = data.list[2].main.temp_max.toFixed(0);
+      dayThreeL = data.list[2].main.temp_min.toFixed(0);
       dayThreeHumid = data.list[2].main.humidity;
 
-      dayFourTempH = data.list[3].main.temp_max.toFixed(0);
-      dayFourTempL = data.list[3].main.temp_min.toFixed(0);
+      dayFourH = data.list[3].main.temp_max.toFixed(0);
+      dayFourL = data.list[3].main.temp_min.toFixed(0);
       dayFourHumid = data.list[3].main.humidity;
 
-      dayFiveTempH = data.list[4].main.temp_max.toFixed(0);
-      dayFiveTempL = data.list[4].main.temp_min.toFixed(0);
+      dayFiveH = data.list[4].main.temp_max.toFixed(0);
+      dayFiveL = data.list[4].main.temp_min.toFixed(0);
       dayFiveHumid = data.list[4].main.humidity;
+
+      showDayOneH.textContent = "High: " + dayOneH + "°F";
+      showDayOneL.textContent = "Low: " + dayOneL + "%";
+      showDayOneHumid.textContent = "Humidity: " + dayOneHumid + "%";
+
+      showDayTwoH.textContent = "High: " + dayTwoH + "°F";
+      showDayTwoL.textContent = "Low: " + dayTwoL + "%";
+      showDayTwoHumid.textContent = "Humidity: " + dayTwoHumid + "%";
+
+      showDayThreeH.textContent = "High: " + dayThreeH + "°F";
+      showDayThreeL.textContent = "Low: " + dayThreeL + "%";
+      showDayThreeHumid.textContent = "Humidity: " + dayThreeHumid + "%";
+
+      showDayFourH.textContent = "High: " + dayFourH + "°F";
+      showDayFourL.textContent = "Low: " + dayFourL + "%";
+      showDayFourHumid.textContent = "Humidity: " + dayFourHumid + "%";
+
+      showDayFiveH.textContent = "High: " + dayFiveH + "°F";
+      showDayFiveL.textContent = "Low: " + dayFiveL + "%";
+      showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";
     })
   }; getForecast()
 

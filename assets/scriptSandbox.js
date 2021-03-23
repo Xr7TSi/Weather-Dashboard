@@ -13,22 +13,22 @@ var showCurrentWind = document.getElementById("showCurrentWind");
 var showCurrentIcon = document.getElementById("showCurrentIcon")
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
-var selectedCity;
-var selectedCityLs = ""
 
- 
+
+// displays last city searched at launch
+var selectedCityLs = JSON.parse(localStorage.getItem("citySearch"));
+
 
 // displays last city searched plus current date with clock
 setInterval(function(){
   var date = moment().format('l');
-  showCityDate.textContent =  selectedCityLs + " " + "(" + date + ")";
+  showCityDate.textContent = selectedCityLs + " " + "(" + date + ")";
 });
 
 
 // gets user input from search for city field and sets to local storage
 searchBtn.on('click', function () {
   var selectedCity = $("#citySearch").val();
-  console.log(selectedCity);
   localStorage.setItem("citySearch", JSON.stringify(selectedCity));
   selectedCityLs = JSON.parse(localStorage.getItem("citySearch"));
 });
@@ -36,7 +36,7 @@ searchBtn.on('click', function () {
 
 function getWeather() {
   
-    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=atlanta';
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCityLs;
 
     fetch(requestUrl) 
     .then(function (response) {
@@ -60,4 +60,8 @@ function getWeather() {
       
     })
   }; getWeather()
+
+
+
+// key = 4b37cdd7653dfc3582c009509a56e3eb
 

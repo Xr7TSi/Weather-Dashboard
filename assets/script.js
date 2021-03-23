@@ -13,20 +13,22 @@ var showCurrentWind = document.getElementById("showCurrentWind");
 var showCurrentIcon = document.getElementById("showCurrentIcon")
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
+var selectedCity;
+
+selectedCityLs = JSON.parse(localStorage.getItem("citySearch"))
 
 
-// displays current date with clock
+// displays last city searched plus current date with clock
 setInterval(function(){
-  var date = moment().format('MMMM Do YYYY, h:mm a');
-  showCityDate.textContent = "Current City " + date;
+  var date = moment().format('l');
+  showCityDate.textContent =  selectedCityLs + " " + "(" + date + ")";
 });
 
 
-// gets user input from search for city field
+// gets user input from search for city field and sets to local storage
 searchBtn.on('click', function () {
-  console.log("I was clicked")
   var selectedCity = $("#citySearch").val();
-
+  console.log(selectedCity);
   localStorage.setItem("citySearch", JSON.stringify(selectedCity));
 });
 
@@ -46,19 +48,14 @@ function getWeather() {
       // currentUv =
       currentIcon = data.weather[0].icon;
       
-      
+  
       showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
       showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
       showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
       // showCurrentUv.textContent = "UV Index: "
       // showCurrentIcon.textContent = currentIcon;
-
-      
-
-      
       
     })
-    
   }; getWeather()
 
   

@@ -20,16 +20,19 @@
             <div class="col-md-3">
                 <h4>Search for a city:</h4>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="citySearch">
                     <button class="btn btn-outline-secondary" type="button" id="searchBtn">&#x1F50D;</button>
                 </div>
             </div>
                 <div class="col-md-9">
-                    <h3>City Name/Date goes here</h3>
+                    <h3 id="showCityDate"></h3>
+                    
+                    
                     <h6 id="showCurrentTemp"></h6>
-                    <h6>Humidity:</h6>
-                    <h6>Wind Speed:</h6>
-                    <h6>UV Index:</h6>
+                    <h6 id="showCurrentHumid"></h6>
+                    <h6 id="showCurrentWind"></h6>
+                    <h6 id="showCurrentUv"></h6>
+                   
 
                     <div class="col-md-9" id="currentWeatherBlock">
                         <h3>5-Day Forecast:</h3>
@@ -67,6 +70,7 @@
             
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script src="assets\script.js" async defer></script>
     </body>
 </html>

@@ -66,7 +66,7 @@ searchBtn.on('click', function () {
         return response.json();
       })
       .then(function (data) {
-        currentTemp = data.main.temp.toFixed(1);
+        currentTemp = data.main.temp.toFixed(0);
         currentHumid = data.main.humidity;
         currentWind = data.wind.speed.toFixed(0);
         // currentUv =

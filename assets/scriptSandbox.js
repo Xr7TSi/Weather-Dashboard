@@ -23,6 +23,7 @@ var dayFiveTempH;
 var dayFiveTempL;
 var dayFiveHumid;
 var date;
+var searchValues = []
 
 
 var showDate = document.getElementById("showDate");
@@ -34,15 +35,13 @@ var showCurrentWind = document.getElementById("showCurrentWind");
 var showCurrentIcon = document.getElementById("showCurrentIcon")
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
+var selectedCity;
 
-
- 
 
   setInterval(function(){
     var date = moment().format('l');
     showDate.textContent = date;
 });
-
   
 
 // gets user input from search for city field and sets to local storage
@@ -51,6 +50,13 @@ searchBtn.on('click', function () {
   localStorage.setItem("citySearch", JSON.stringify(selectedCity));
   selectedCityLs = JSON.parse(localStorage.getItem("citySearch"));
   showCity.textContent = selectedCityLs;
+
+  for (var i = 0; i <= searchValues.length; i++) {
+  var ul = document.createElement("ul");
+  ul.textContent = selectedCity;
+  ul.setAttribute("data-index", i);
+  searchHist.appendChild(ul);
+  }
   
   function getWeather() {
       var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCityLs;
@@ -60,10 +66,9 @@ searchBtn.on('click', function () {
         return response.json();
       })
       .then(function (data) {
-        // console.log(data)
-        currentTemp = data.main.temp.toFixed(1);
+        currentTemp = data.main.temp.toFixed(0);
         currentHumid = data.main.humidity;
-        currentWind = data.wind.speed;
+        currentWind = data.wind.speed.toFixed(0);
         // currentUv =
         // currentIcon = data.weather[0].icon;
         // console.log(currentIcon);
@@ -84,7 +89,6 @@ searchBtn.on('click', function () {
         return response.json();
       })
       .then(function (data) {
-        console.log(data)
         dayOneH = data.list[0].main.temp_max.toFixed(0);
         dayOneL = data.list[0].main.temp_min.toFixed(0);
         dayOneHumid = data.list[0].main.humidity;
@@ -133,16 +137,4 @@ searchBtn.on('click', function () {
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
 // getForecast api key = 279105e2e4e9e82f777d589c68abec56
-
-
-
-
-for (var i = 0; i < searchValues.length; i++) {
-  var selectedCity = searchValues[i];
-  var li = document.createElement("li");
-  li.textContent = searchValues;
-  li.setAttribute("data-index", i);
-  searchHist.appendChild(li);
-}
-
 

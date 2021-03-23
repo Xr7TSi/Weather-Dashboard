@@ -24,12 +24,6 @@ var dayFiveTempL;
 var dayFiveHumid;
 
 
-var showCityDate = document.getElementById("showCityDate");
-var showCurrentTemp = document.getElementById("showCurrentTemp");
-var showCurrentHumid = document.getElementById("showCurrentHumid");
-var showCurrentWind = document.getElementById("showCurrentWind");
-// var showCurrentUv = document.getElementById("showCurrentUv");
-var showCurrentIcon = document.getElementById("showCurrentIcon")
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
 
@@ -64,7 +58,7 @@ function getWeather() {
       // console.log(data)
       currentTemp = data.main.temp.toFixed(1);
       currentHumid = data.main.humidity;
-      currentWind = data.wind.speed;
+      currentWind = data.wind.speed.toFixed(0);
       // currentUv =
       // currentIcon = data.weather[0].icon;
       // console.log(currentIcon);
@@ -86,7 +80,6 @@ function getWeather() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
       dayOneH = data.list[0].main.temp_max.toFixed(0);
       dayOneL = data.list[0].main.temp_min.toFixed(0);
       dayOneHumid = data.list[0].main.humidity;

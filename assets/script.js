@@ -36,14 +36,17 @@ var showCurrentWind = document.getElementById("showCurrentWind");
 var showCurrentIcon = document.getElementById("showCurrentIcon")
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
-
+var cityBtn = $("#cityBtn");
 
 // displays date
   setInterval(function(){
     var date = moment().format('l');
     showDate.textContent = date;
 });
-  
+
+cityBtn.on('click', function() {
+  console.log("I was clicked")
+})
 
 // gets selected city, displays selected city, sets selected city to local storage, creates and displays weather based on selected city 
 searchBtn.on('click', function () {
@@ -59,7 +62,6 @@ searchBtn.on('click', function () {
     // possible set attribute to make these buttons
     searchHist.appendChild(ul);
     }
-
 
   // api for current weather
   var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCity;
@@ -127,6 +129,9 @@ searchBtn.on('click', function () {
       })
     
 });
+
+
+
 
 
 

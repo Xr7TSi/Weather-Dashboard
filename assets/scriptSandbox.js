@@ -33,10 +33,17 @@ var showCurrentTemp = document.getElementById("showCurrentTemp");
 var showCurrentHumid = document.getElementById("showCurrentHumid");
 var showCurrentWind = document.getElementById("showCurrentWind");
 // var showCurrentUv = document.getElementById("showCurrentUv");
-var showCurrentIcon = document.getElementById("showCurrentIcon")
+var showCurrentIcon = document.getElementById("showCurrentIcon");
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
-var cityBtn = $("#cityBtn");
+var cityBtn1 = $("#cityBtn1");
+var cityBtn2 = $("#cityBtn2");
+var cityBtn3 = $("#cityBtn3");
+
+cityBtn1.on('click', function(){
+  console.log("Btn 1 was clicked!")
+});
+
 
 // displays date
   setInterval(function(){
@@ -127,6 +134,8 @@ searchBtn.on('click', function () {
       })
     
 });
+
+
 
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb

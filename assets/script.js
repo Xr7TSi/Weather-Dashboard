@@ -44,25 +44,23 @@ var cityBtn = $("#cityBtn");
     showDate.textContent = date;
 });
 
-cityBtn.on('click', function() {
-  console.log("I was clicked")
-})
 
 // gets selected city, displays selected city, sets selected city to local storage, creates and displays weather based on selected city 
 searchBtn.on('click', function () {
   var selectedCity = $("#citySearch").val();
 
+  searchValues.push(selectedCity)
+
   showCity.textContent = selectedCity;
 
-  // adds search values to display
-  for (var i = 0; i <= searchValues.length; i++) {
-    var ul = document.createElement("ul");
-    ul.textContent = selectedCity;
-    ul.setAttribute = ("class", "cityBtn");
-    // possible set attribute to make these buttons
-    searchHist.appendChild(ul);
-    }
+  // adds search values to display  
+  var ul = document.createElement("ul");
+  ul.textContent = selectedCity;
+  searchHist.appendChild(ul);
 
+  // adds cityBtn id plus incremented value to each ul 
+  ul.id = "cityBtn" + searchValues.length;
+      
   // api for current weather
   var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCity;
 
@@ -129,10 +127,6 @@ searchBtn.on('click', function () {
       })
     
 });
-
-
-
-
 
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb

@@ -59,17 +59,15 @@ searchBtn.on('click', function () {
  
 
   function buttonClickHandler(event) {
-    var id = event.target.id;
-  
-    console.log(id + " was clicked!");
-  }
-  
-  var button = $('ul');
-    //more code to set up button
-  
-  button.on('click', buttonClickHandler);
+  var id = event.target.id;
 
+  console.log(id + " was clicked!");
+}
 
+var button = $('ul')
+  //more code to set up button
+
+button.on('click', buttonClickHandler);
 
 
   // api for current weather

@@ -57,17 +57,18 @@ searchBtn.on('click', function () {
   ul.textContent = selectedCity;
   searchHist.appendChild(ul);
  
-
+  // sets variable city by ul item that's clicked
   function buttonClickHandler(event) {
-  var id = event.target.id;
+    console.log(event);
+  var city = event.target.innerText;
+   console.log(city)
+  }
 
-  console.log(id + " was clicked!");
-}
-
-var button = $('ul')
-  //more code to set up button
-
-button.on('click', buttonClickHandler);
+  // adds button function to each ul item
+  var button = $('ul')
+  
+  // evokes buttonClickHandler function
+  button.on('click', buttonClickHandler);
 
 
   // api for current weather

@@ -57,19 +57,18 @@ searchBtn.on('click', function () {
   ul.textContent = selectedCity;
   searchHist.appendChild(ul);
  
-
+  // sets variable city by ul item that's clicked
   function buttonClickHandler(event) {
-    var id = event.target.id;
-  
-    console.log(id + " was clicked!");
+    console.log(event);
+  var city = event.target.innerText;
+   console.log(city)
   }
+
+  // adds button function to each ul item
+  var button = $('ul')
   
-  var button = $('ul');
-    //more code to set up button
-  
+  // evokes buttonClickHandler function
   button.on('click', buttonClickHandler);
-
-
 
 
   // api for current weather
@@ -142,17 +141,3 @@ searchBtn.on('click', function () {
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
 // getForecast api key = 279105e2e4e9e82f777d589c68abec56
-
-
-
-// function buttonClickHandler(event) {
-//   var id = event.target.id;
-
-//   console.log(id + " was clicked!");
-// }
-
-
-// var button = $('ul')
-//   //more code to set up button
-
-// button.on('click', buttonClickHandler);

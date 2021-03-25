@@ -21,6 +21,7 @@ var dayFiveTempH;
 var dayFiveTempL;
 var dayFiveHumid;
 
+
 var location;
 var date;
 
@@ -74,13 +75,13 @@ function getWeather() {
    showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
    showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
    showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
-  
+   
   //  correct issue below
-   var iconImg = "http://openweathermap.org/img/w/" + currentIcon + ".png"
-   showCurrentIcon.textContent = iconImg
+   var iconImg = "http://openweathermap.org/img/wn/" + currentIcon + ".png"
+   showCurrentIcon.setAttribute('src', iconImg);
 
  })
-
+ 
 
  // api for forecast
  var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=279105e2e4e9e82f777d589c68abec56&q=' + selectedCity;
@@ -140,3 +141,4 @@ function getWeather() {
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
 // getForecast api key = 279105e2e4e9e82f777d589c68abec56
+

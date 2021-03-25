@@ -24,7 +24,7 @@ var dayFiveHumid;
 
 var location;
 var date;
-var searchValues = []
+// var searchValues = []
 
 var showDate = document.getElementById("showDate");
 var showCity = document.getElementById("showCity");
@@ -48,7 +48,7 @@ var searchBtn = $("#searchBtn");
 searchBtn.on('click', function () {
   var selectedCity = $("#citySearch").val();
 
-  searchValues.push(selectedCity)
+  // searchValues.push(selectedCity)
 
   showCity.textContent = selectedCity;
 
@@ -65,10 +65,10 @@ searchBtn.on('click', function () {
   }
 
   // adds button function to each ul item
-  var button = $('ul')
+  var histBtn = $('ul')
   
   // evokes buttonClickHandler function
-  button.on('click', buttonClickHandler);
+  histBtn.on('click', buttonClickHandler);
 
 
   // api for current weather

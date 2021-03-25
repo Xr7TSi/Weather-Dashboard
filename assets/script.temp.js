@@ -1,9 +1,39 @@
 
 
 
+
+
+searchBtn.on('click', function () {
+  var selectedCity = $("#citySearch").val();
+
+  // searchValues.push(selectedCity)
+  showCity.textContent = selectedCity;
+
+  // adds search values to display  
+  var ul = document.createElement("ul");
+  ul.textContent = selectedCity;
+  searchHist.appendChild(ul);
+ 
+  // adds button function to each ul item
+  var histBtn = $('ul');
+}); getWeather()
+
+
+histBtn.on('click', function () {
+  
+   // sets variable city by ul item that's clicked
+   function buttonClickHandler(event) {
+    
+    var city = event.target.innerText;
+    city = selectedCity;
+  }
+  showCity.textContent = selectedCity;
+  console.log(selectedCity);
+}); getWeather()
+
+
+
 function getWeather(selectedCity) {
-
-
 
  var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCity;
 
@@ -20,7 +50,6 @@ function getWeather(selectedCity) {
    showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
    showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
  })
-
 
  // api for forecast
  var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=279105e2e4e9e82f777d589c68abec56&q=' + selectedCity;
@@ -69,5 +98,5 @@ function getWeather(selectedCity) {
    showDayFiveL.textContent = "Low: " + dayFiveL + "%";
    showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";
    })
+  }
 
-}

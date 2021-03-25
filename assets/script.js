@@ -36,7 +36,7 @@ var showCurrentIcon = document.getElementById("showCurrentIcon");
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
 var histBtn;
-var selectedCity;
+// var selectedCity;
 
 
 // displays date
@@ -60,23 +60,22 @@ searchBtn.on('click', function () {
  
   // adds button function to each ul item
   histBtn = $('ul');
-  console.log(selectedCity)
-}); getWeather()
+  console.log(selectedCity);
+  getWeather();
+}); 
 
 
 // sets user selection from history as selected city, displays selected city and runs getWeather function
-// histBtn.on('click', function () {
-  
-//    // sets variable city by ul item that's clicked
-//    function buttonClickHandler(event) {
-    
-//     var city = event.target.innerText;
-//     city = selectedCity;
-//   }
-//   showCity.textContent = selectedCity;
-//   console.log(selectedCity);
-// }); getWeather()
-
+histBtn.on('click', function () {
+   // sets variable city by ul item that's clicked
+   function buttonClickHandler(event) {
+    var city = event.target.innerText;
+    city = selectedCity;
+  }
+  showCity.textContent = selectedCity;
+  console.log(selectedCity);
+  getWeather();
+}); 
 
 
 function getWeather() {

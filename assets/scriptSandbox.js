@@ -24,7 +24,6 @@ var dayFiveHumid;
 
 var location;
 var date;
-// var searchValues = []
 
 var showDate = document.getElementById("showDate");
 var showCity = document.getElementById("showCity");
@@ -36,15 +35,14 @@ var showCurrentIcon = document.getElementById("showCurrentIcon");
 var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
 var histBtn;
-// var selectedCity;
 
 
 // displays date
   setInterval(function(){
-    var date = moment().format('l');
+    date = moment().format('l');
     showDate.textContent = date;
 });
-
+ 
 
 // sets user input to var selectedCity, displays selected city, creates search history ul runs getWeather function
 searchBtn.on('click', function () {
@@ -113,22 +111,28 @@ function getWeather() {
    dayFiveL = data.list[4].main.temp_min.toFixed(0);
    dayFiveHumid = data.list[4].main.humidity;
 
+
+   showDayOneDate.textContent = date;
    showDayOneH.textContent = "High: " + dayOneH + "°F";
    showDayOneL.textContent = "Low: " + dayOneL + "%";
    showDayOneHumid.textContent = "Humidity: " + dayOneHumid + "%";
 
+   showDayTwoDate.textContent = date;
    showDayTwoH.textContent = "High: " + dayTwoH + "°F";
    showDayTwoL.textContent = "Low: " + dayTwoL + "%";
    showDayTwoHumid.textContent = "Humidity: " + dayTwoHumid + "%";
 
+   showDayThreeDate.textContent = date;
    showDayThreeH.textContent = "High: " + dayThreeH + "°F";
    showDayThreeL.textContent = "Low: " + dayThreeL + "%";
    showDayThreeHumid.textContent = "Humidity: " + dayThreeHumid + "%";
 
+   showDayFourDate.textContent = date;
    showDayFourH.textContent = "High: " + dayFourH + "°F";
    showDayFourL.textContent = "Low: " + dayFourL + "%";
    showDayFourHumid.textContent = "Humidity: " + dayFourHumid + "%";
 
+   showDayFiveDate.textContent = date;
    showDayFiveH.textContent = "High: " + dayFiveH + "°F";
    showDayFiveL.textContent = "Low: " + dayFiveL + "%";
    showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";

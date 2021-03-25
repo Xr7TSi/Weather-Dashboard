@@ -25,14 +25,6 @@ var dayFiveHumid;
 var location;
 var date;
 
-var showDate = document.getElementById("showDate");
-var showCity = document.getElementById("showCity");
-var showCurrentTemp = document.getElementById("showCurrentTemp");
-var showCurrentHumid = document.getElementById("showCurrentHumid");
-var showCurrentWind = document.getElementById("showCurrentWind");
-// var showCurrentUv = document.getElementById("showCurrentUv");
-var showCurrentIcon = document.getElementById("showCurrentIcon");
-var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
 var histBtn;
 

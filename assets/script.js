@@ -56,24 +56,14 @@ searchBtn.on('click', function () {
   // adds search values to display  
   var ul = document.createElement("ul");
   ul.textContent = selectedCity;
+  // ul.addEventListener('click', () => showCity.textContent = ul.textContent);
+  ul.addEventListener('click', function() {
+    showCity.textContent = ul.textContent,
+    selectedCity = showCity.textContent,
+    getWeather();
+  })
+
   searchHist.appendChild(ul);
- 
-  // adds button function to each ul item
-  histBtn = $('ul');
-  console.log(selectedCity);
-  getWeather();
-}); 
-
-
-// sets user selection from history as selected city, displays selected city and runs getWeather function
-histBtn.on('click', function () {
-   // sets variable city by ul item that's clicked
-   function buttonClickHandler(event) {
-    var city = event.target.innerText;
-    city = selectedCity;
-  }
-  showCity.textContent = selectedCity;
-  console.log(selectedCity);
   getWeather();
 }); 
 
@@ -149,6 +139,11 @@ function getWeather() {
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
 // getForecast api key = 279105e2e4e9e82f777d589c68abec56
+
+
+
+
+
 
 
 

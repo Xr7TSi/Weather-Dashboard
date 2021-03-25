@@ -3,7 +3,6 @@ var currentTemp;
 var currentHumid;
 var currentWind;
 var currentUv;
-var currentIcon;
 
 // forecast variables
 var dayOneTempH;
@@ -26,7 +25,6 @@ var location;
 var date;
 
 var searchBtn = $("#searchBtn");
-var histBtn;
 
 
 // displays date
@@ -34,8 +32,9 @@ var histBtn;
     date = moment().format('l');
     showDate.textContent = date;
 });
- 
 
+
+ 
 // sets user input to var selectedCity, displays selected city, creates search history ul runs getWeather function
 searchBtn.on('click', function () {
   selectedCity = $("#citySearch").val();
@@ -70,11 +69,16 @@ function getWeather() {
    currentTemp = data.main.temp.toFixed(0);
    currentHumid = data.main.humidity;
    currentWind = data.wind.speed.toFixed(0);
-     
+   currentIcon = data.weather[0].icon;
+    console.log(data) 
    showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
    showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
    showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
+   showCurrentIcon.textContent = currentIcon;
  })
+
+ 
+
 
  // api for forecast
  var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=279105e2e4e9e82f777d589c68abec56&q=' + selectedCity;

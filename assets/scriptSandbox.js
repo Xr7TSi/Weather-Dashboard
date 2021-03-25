@@ -3,7 +3,6 @@ var currentTemp;
 var currentHumid;
 var currentWind;
 var currentUv;
-var currentIcon;
 
 // forecast variables
 var dayOneTempH;
@@ -25,16 +24,7 @@ var dayFiveHumid;
 var location;
 var date;
 
-var showDate = document.getElementById("showDate");
-var showCity = document.getElementById("showCity");
-var showCurrentTemp = document.getElementById("showCurrentTemp");
-var showCurrentHumid = document.getElementById("showCurrentHumid");
-var showCurrentWind = document.getElementById("showCurrentWind");
-// var showCurrentUv = document.getElementById("showCurrentUv");
-var showCurrentIcon = document.getElementById("showCurrentIcon");
-var citySearch = document.getElementById("citySearch");
 var searchBtn = $("#searchBtn");
-var histBtn;
 
 
 // displays date
@@ -42,6 +32,8 @@ var histBtn;
     date = moment().format('l');
     showDate.textContent = date;
 });
+
+
  
 
 // sets user input to var selectedCity, displays selected city, creates search history ul runs getWeather function
@@ -78,11 +70,16 @@ function getWeather() {
    currentTemp = data.main.temp.toFixed(0);
    currentHumid = data.main.humidity;
    currentWind = data.wind.speed.toFixed(0);
-     
+   currentIcon = data.weather[0].icon;
+    console.log(data) 
    showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
    showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
    showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
+   showCurrentIcon.textContent = currentIcon;
  })
+
+ 
+
 
  // api for forecast
  var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=279105e2e4e9e82f777d589c68abec56&q=' + selectedCity;

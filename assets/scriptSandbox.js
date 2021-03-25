@@ -35,7 +35,6 @@ var searchBtn = $("#searchBtn");
 
 
  
-
 // sets user input to var selectedCity, displays selected city, creates search history ul runs getWeather function
 searchBtn.on('click', function () {
   selectedCity = $("#citySearch").val();
@@ -71,14 +70,16 @@ function getWeather() {
    currentHumid = data.main.humidity;
    currentWind = data.wind.speed.toFixed(0);
    currentIcon = data.weather[0].icon;
-    console.log(data) 
+    
    showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
    showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
    showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
-   showCurrentIcon.textContent = currentIcon;
- })
+  
+  //  correct issue below
+   var iconImg = "http://openweathermap.org/img/w/" + currentIcon + ".png"
+   showCurrentIcon.textContent = iconImg
 
- 
+ })
 
 
  // api for forecast
@@ -134,8 +135,7 @@ function getWeather() {
    showDayFiveL.textContent = "Low: " + dayFiveL + "%";
    showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";
    })
-  }
-
+  };
 
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb

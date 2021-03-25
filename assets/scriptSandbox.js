@@ -56,36 +56,22 @@ searchBtn.on('click', function () {
   var ul = document.createElement("ul");
   ul.textContent = selectedCity;
   searchHist.appendChild(ul);
-
-  // adds cityBtn id plus incremented value to each ul 
-  ul.id = "cityBtn" + searchValues.length;
-
-  // manages clicks on search history 
-  var cityBtn1 = $("#cityBtn1");
-  var cityBtn2 = $("#cityBtn2");
-  var cityBtn3 = $("#cityBtn3");
-  var cityBtn4 = $("#cityBtn4");
-  var cityBtn5 = $("#cityBtn5");
-
-  cityBtn1.on('click', function(){
-    console.log("Btn 1 was clicked!")
-  });
-  cityBtn2.on('click', function(){
-    console.log("Btn 2 was clicked!")
-  });
-  cityBtn3.on('click', function(){
-    console.log("Btn 3 was clicked!")
-  });
-  cityBtn4.on('click', function(){
-    console.log("Btn 4 was clicked!")
-  });
-  cityBtn5.on('click', function(){
-    console.log("Btn 5 was clicked!")
-  });
-
  
 
-      
+  function buttonClickHandler(event) {
+    var id = event.target.id;
+  
+    console.log(id + " was clicked!");
+  }
+  
+  var button = $('ul');
+    //more code to set up button
+  
+  button.on('click', buttonClickHandler);
+
+
+
+
   // api for current weather
   var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=imperial&appid=4b37cdd7653dfc3582c009509a56e3eb&q=' + selectedCity;
 
@@ -156,3 +142,17 @@ searchBtn.on('click', function () {
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
 // getForecast api key = 279105e2e4e9e82f777d589c68abec56
+
+
+
+// function buttonClickHandler(event) {
+//   var id = event.target.id;
+
+//   console.log(id + " was clicked!");
+// }
+
+
+// var button = $('ul')
+//   //more code to set up button
+
+// button.on('click', buttonClickHandler);

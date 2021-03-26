@@ -21,7 +21,6 @@ var dayFiveTempH;
 var dayFiveTempL;
 var dayFiveHumid;
 
-
 var location;
 var date;
 
@@ -35,7 +34,6 @@ var searchBtn = $("#searchBtn");
 });
 
 
- 
 // sets user input to var selectedCity, displays selected city, creates search history ul runs getWeather function
 searchBtn.on('click', function () {
   selectedCity = $("#citySearch").val();
@@ -43,16 +41,14 @@ searchBtn.on('click', function () {
   // searchValues.push(selectedCity)
   showCity.textContent = selectedCity;
 
-  // adds search values to display  
+  // adds search values to display, adds click function to push clicked item to selectedCity  
   var ul = document.createElement("ul");
   ul.textContent = selectedCity;
-  // ul.addEventListener('click', () => showCity.textContent = ul.textContent);
   ul.addEventListener('click', function() {
     showCity.textContent = ul.textContent,
     selectedCity = showCity.textContent,
     getWeather();
   })
-
   searchHist.appendChild(ul);
   getWeather();
 }); 
@@ -76,11 +72,22 @@ function getWeather() {
    showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
    showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
    
-  //  correct issue below
    var iconImg = "http://openweathermap.org/img/wn/" + currentIcon + ".png"
    showCurrentIcon.setAttribute('src', iconImg);
 
- })
+  //  var uvIndexUrl = "https://api.openweathermap.org/data/2.5/onecall?&units=imperial&appid802248b8a798a6e1e59be31a4560e2ec&q=" + selectedCity;
+    
+  //  fetch(uvIndexUrl) 
+  // .then(function (response) {
+  // return response.json();
+  // })
+  // .then(function (data) {
+  // console.log(data)
+  //   //  currentUv =  position in index then..
+  //   //showCurrentUv.textContent= currentUv 
+  // })
+
+})
  
 
  // api for forecast
@@ -155,6 +162,7 @@ function getWeather() {
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
 // getForecast api key = 279105e2e4e9e82f777d589c68abec56
+
 
 
 

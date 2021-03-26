@@ -63,6 +63,8 @@ function getWeather() {
    return response.json();
  })
  .then(function (data) {
+   cityLon = data.coord.lon;
+   cityLat = data.coord.lat;
    currentTemp = data.main.temp.toFixed(0);
    currentHumid = data.main.humidity;
    currentWind = data.wind.speed.toFixed(0);
@@ -75,17 +77,18 @@ function getWeather() {
    var iconImg = "http://openweathermap.org/img/wn/" + currentIcon + ".png"
    showCurrentIcon.setAttribute('src', iconImg);
 
-  //  var uvIndexUrl = "https://api.openweathermap.org/data/2.5/onecall?&units=imperial&appid802248b8a798a6e1e59be31a4560e2ec&q=" + selectedCity;
+  // used for getting uv index
+   var oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?&lat=" + cityLat + "&lon=" + cityLon + "&appid=802248b8a798a6e1e59be31a4560e2ec";
+   
     
-  //  fetch(uvIndexUrl) 
-  // .then(function (response) {
-  // return response.json();
-  // })
-  // .then(function (data) {
-  // console.log(data)
-  //   //  currentUv =  position in index then..
-  //   //showCurrentUv.textContent= currentUv 
-  // })
+   fetch(oneCallUrl) 
+  .then(function (response) {
+  return response.json();
+  })
+  .then(function (data) {
+    currentUv = data.current.uvi
+    showCurrentUv.textContent= currentUv 
+  })
 
 })
  

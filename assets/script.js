@@ -33,13 +33,16 @@ var searchBtn = $("#searchBtn");
     showDate.textContent = date;
 });
 
+
 // pulls last selected city from local storage on page load and displays data for last selected city
 selectedCityLs = localStorage.getItem("searchedCity");
-selectedCity = selectedCityLs 
-console.log(selectedCity);
-showCity.textContent = selectedCity;
-getWeather()
+console.log(selectedCityLs);
 
+if (selectedCityLs = !null) {
+selectedCity = selectedCityLs; 
+showCity.textContent = selectedCity;
+getWeather();
+}
 
 // sets user input to var selectedCity, displays selected city, creates search history ul runs getWeather function
 searchBtn.on('click', function () {

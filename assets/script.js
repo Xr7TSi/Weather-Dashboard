@@ -31,11 +31,47 @@ var date;
 var searchBtn = $("#searchBtn");
 
 
-// displays date
+// displays current date
   setInterval(function(){
     date = moment().format('l');
     showDate.textContent = date;
 });
+
+// displays forecast 1 date
+setInterval(function(){
+  date = moment().add(1, 'days').format('l'); 
+  showDayOneDate.textContent = date;
+});
+
+// displays forecast 2 date
+setInterval(function(){
+  date = moment().add(2, 'days').format('l');
+  showDayTwoDate.textContent = date;
+});
+
+// displays forecast 2 date
+setInterval(function(){
+  date = moment().add(3, 'days').format('l');
+  showDayThreeDate.textContent = date;
+});
+
+// displays forecast 2 date
+setInterval(function(){
+  date = moment().add(4, 'days').format('l');
+  showDayFourDate.textContent = date;
+});
+
+// displays forecast 2 date
+setInterval(function(){
+  date = moment().add(5, 'days').format('l');
+  showDayFiveDate.textContent = date;
+});
+
+
+
+
+
+
 
 
 // pulls last selected city from local storage on page load and displays data for last selected city
@@ -144,31 +180,27 @@ function getWeather() {
     var dayFiveImg = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png"
     
     //  displays weather data
-    showDayOneDate.textContent = date;
+    
     showDayOneH.textContent = "High: " + dayOneH + "°F";
     showDayOneL.textContent = "Low: " + dayOneL + "°F";
     showDayOneHumid.textContent = "Humidity: " + dayOneHumid + "%";
     showDayOneIcon.setAttribute('src', dayOneImg);
 
-    showDayTwoDate.textContent = date;
     showDayTwoH.textContent = "High: " + dayTwoH + "°F";
     showDayTwoL.textContent = "Low: " + dayTwoL + "°F";
     showDayTwoHumid.textContent = "Humidity: " + dayTwoHumid + "%";
     showDayTwoIcon.setAttribute('src', dayTwoImg);
 
-    showDayThreeDate.textContent = date;
     showDayThreeH.textContent = "High: " + dayThreeH + "°F";
     showDayThreeL.textContent = "Low: " + dayThreeL + "°F";
     showDayThreeHumid.textContent = "Humidity: " + dayThreeHumid + "%";
     showDayThreeIcon.setAttribute('src', dayThreeImg);
 
-    showDayFourDate.textContent = date;
     showDayFourH.textContent = "High: " + dayFourH + "°F";
     showDayFourL.textContent = "Low: " + dayFourL + "°F";
     showDayFourHumid.textContent = "Humidity: " + dayFourHumid + "%";
     showDayFourIcon.setAttribute('src', dayFourImg);
 
-    showDayFiveDate.textContent = date;
     showDayFiveH.textContent = "High: " + dayFiveH + "°F";
     showDayFiveL.textContent = "Low: " + dayFiveL + "°F";
     showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";

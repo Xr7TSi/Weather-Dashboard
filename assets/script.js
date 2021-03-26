@@ -110,31 +110,45 @@ function getWeather() {
    dayFiveL = data.list[4].main.temp_min.toFixed(0);
    dayFiveHumid = data.list[4].main.humidity;
 
-
    showDayOneDate.textContent = date;
    showDayOneH.textContent = "High: " + dayOneH + "°F";
    showDayOneL.textContent = "Low: " + dayOneL + "%";
    showDayOneHumid.textContent = "Humidity: " + dayOneHumid + "%";
+   dayOneIcon = data.list[0].weather[0].icon;
+   var dayOneImg = "http://openweathermap.org/img/wn/" + dayOneIcon + ".png"
+   showDayOneIcon.setAttribute('src', dayOneImg);
 
    showDayTwoDate.textContent = date;
    showDayTwoH.textContent = "High: " + dayTwoH + "°F";
    showDayTwoL.textContent = "Low: " + dayTwoL + "%";
    showDayTwoHumid.textContent = "Humidity: " + dayTwoHumid + "%";
+   dayTwoIcon = data.list[1].weather[0].icon;
+   var dayTwoImg = "http://openweathermap.org/img/wn/" + dayTwoIcon + ".png"
+   showDayTwoIcon.setAttribute('src', dayTwoImg);
 
    showDayThreeDate.textContent = date;
    showDayThreeH.textContent = "High: " + dayThreeH + "°F";
    showDayThreeL.textContent = "Low: " + dayThreeL + "%";
    showDayThreeHumid.textContent = "Humidity: " + dayThreeHumid + "%";
+   dayThreeIcon = data.list[2].weather[0].icon;
+   var dayThreeImg = "http://openweathermap.org/img/wn/" + dayThreeIcon + ".png"
+   showDayThreeIcon.setAttribute('src', dayThreeImg);
 
    showDayFourDate.textContent = date;
    showDayFourH.textContent = "High: " + dayFourH + "°F";
    showDayFourL.textContent = "Low: " + dayFourL + "%";
    showDayFourHumid.textContent = "Humidity: " + dayFourHumid + "%";
+   dayFourIcon = data.list[3].weather[0].icon;
+   var dayFourImg = "http://openweathermap.org/img/wn/" + dayFourIcon + ".png"
+   showDayFourIcon.setAttribute('src', dayFourImg);
 
    showDayFiveDate.textContent = date;
    showDayFiveH.textContent = "High: " + dayFiveH + "°F";
    showDayFiveL.textContent = "Low: " + dayFiveL + "%";
    showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";
+   dayFiveIcon = data.list[4].weather[0].icon;
+   var dayFiveImg = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png"
+   showDayFiveIcon.setAttribute('src', dayFiveImg);
    })
   };
 

@@ -77,9 +77,8 @@ function getWeather() {
    var iconImg = "http://openweathermap.org/img/wn/" + currentIcon + ".png"
    showCurrentIcon.setAttribute('src', iconImg);
 
-  // used for getting uv index
-   var oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?&lat=" + cityLat + "&lon=" + cityLon + "&appid=802248b8a798a6e1e59be31a4560e2ec";
-   
+    // api call, includes uv index
+  var oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?&lat=" + cityLat + "&lon=" + cityLon + "&appid=802248b8a798a6e1e59be31a4560e2ec";
     
   fetch(oneCallUrl) 
   .then(function (response) {
@@ -89,15 +88,15 @@ function getWeather() {
     currentUv = data.current.uvi
     showCurrentUv.textContent= "UV Index " + currentUv; 
     if (currentUv < 3) {
-      document.getElementById("showCurrentUv").classList.add("uvLow");
+      document.getElementById("showCurrentUv").setAttribute("style","background-color: rgb(37, 200, 37)");
     } else if (currentUv < 6) {
-      document.getElementById("showCurrentUv").classList.add("uvMod");
+      document.getElementById("showCurrentUv").setAttribute("style","background-color: yellow");
     } else {
-      document.getElementById("showCurrentUv").classList.add("uvSev");
+      document.getElementById("showCurrentUv").setAttribute("style", "background-color: red");
     };
   });
+
 });
- 
 
  // api for forecast
  var forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?&units=imperial&appid=279105e2e4e9e82f777d589c68abec56&q=' + selectedCity;
@@ -166,12 +165,11 @@ function getWeather() {
    var dayFiveImg = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png"
    showDayFiveIcon.setAttribute('src', dayFiveImg);
    })
-  };
+};
 
 
 // getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
 // getForecast api key = 279105e2e4e9e82f777d589c68abec56
-
 
 
 

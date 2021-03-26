@@ -38,9 +38,10 @@ var searchBtn = $("#searchBtn");
 selectedCityLs = localStorage.getItem("searchedCity");
 console.log(selectedCityLs);
 
-if (selectedCityLs = !null) {
+if (selectedCityLs) {
 selectedCity = selectedCityLs; 
 showCity.textContent = selectedCity;
+console.log(selectedCity)
 getWeather();
 }
 
@@ -188,3 +189,6 @@ function getWeather() {
    showDayFiveIcon.setAttribute('src', dayFiveImg);
    })
 };
+
+
+// API for geocoding https://opencagedata.com/

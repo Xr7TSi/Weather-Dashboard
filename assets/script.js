@@ -131,7 +131,7 @@ function getWeather() {
 
    // displays current weather icon 
    var iconImg = "http://openweathermap.org/img/wn/" + currentIcon + ".png"
-   document.getElementById("showCurrentIcon").setAttribute('src', iconImg);
+   showCurrentIcon.setAttribute('src', iconImg);
     
       //  determines uv index display background color
     if (currentUv < 3) {
@@ -178,27 +178,27 @@ function getWeather() {
     showDayOneH.textContent = "High: " + dayOneH + "°F";
     showDayOneL.textContent = "Low: " + dayOneL + "°F";
     showDayOneHumid.textContent = "Humidity: " + dayOneHumid + "%";
-    document.getElementById("showDayOneIcon").setAttribute('src', dayOneImg);
+    showDayOneIcon.setAttribute('src', dayOneImg);
 
     showDayTwoH.textContent = "High: " + dayTwoH + "°F";
     showDayTwoL.textContent = "Low: " + dayTwoL + "°F";
     showDayTwoHumid.textContent = "Humidity: " + dayTwoHumid + "%";
-    document.getElementById("showDayTwoIcon").setAttribute('src', dayTwoImg);
+    showDayTwoIcon.setAttribute('src', dayTwoImg);
 
     showDayThreeH.textContent = "High: " + dayThreeH + "°F";
     showDayThreeL.textContent = "Low: " + dayThreeL + "°F";
     showDayThreeHumid.textContent = "Humidity: " + dayThreeHumid + "%";
-    document.getElementById("showDayThreeIcon").setAttribute('src', dayThreeImg);
+    showDayThreeIcon.setAttribute('src', dayThreeImg);
 
     showDayFourH.textContent = "High: " + dayFourH + "°F";
     showDayFourL.textContent = "Low: " + dayFourL + "°F";
     showDayFourHumid.textContent = "Humidity: " + dayFourHumid + "%";
-    document.getElementById("showDayFourIcon").setAttribute('src', dayFourImg);
+    showDayFourIcon.setAttribute('src', dayFourImg);
 
     showDayFiveH.textContent = "High: " + dayFiveH + "°F";
     showDayFiveL.textContent = "Low: " + dayFiveL + "°F";
     showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";
-    document.getElementById("showDayFiveIcon").setAttribute('src', dayFiveImg);
+    showDayFiveIcon.setAttribute('src', dayFiveImg);
    });
   });
 };

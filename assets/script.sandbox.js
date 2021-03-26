@@ -33,13 +33,16 @@ var searchBtn = $("#searchBtn");
     showDate.textContent = date;
 });
 
+
 // pulls last selected city from local storage on page load and displays data for last selected city
 selectedCityLs = localStorage.getItem("searchedCity");
-selectedCity = selectedCityLs 
-console.log(selectedCity);
-showCity.textContent = selectedCity;
-getWeather()
+console.log(selectedCityLs);
 
+if (selectedCityLs = !null) {
+selectedCity = selectedCityLs; 
+showCity.textContent = selectedCity;
+getWeather();
+}
 
 // sets user input to var selectedCity, displays selected city, creates search history ul runs getWeather function
 searchBtn.on('click', function () {
@@ -146,7 +149,7 @@ function getWeather() {
   //  displays weather data
    showDayOneDate.textContent = date;
    showDayOneH.textContent = "High: " + dayOneH + "°F";
-   showDayOneL.textContent = "Low: " + dayOneL + "%";
+   showDayOneL.textContent = "Low: " + dayOneL + "°F";
    showDayOneHumid.textContent = "Humidity: " + dayOneHumid + "%";
    dayOneIcon = data.list[0].weather[0].icon;
    var dayOneImg = "http://openweathermap.org/img/wn/" + dayOneIcon + ".png"
@@ -154,7 +157,7 @@ function getWeather() {
 
    showDayTwoDate.textContent = date;
    showDayTwoH.textContent = "High: " + dayTwoH + "°F";
-   showDayTwoL.textContent = "Low: " + dayTwoL + "%";
+   showDayTwoL.textContent = "Low: " + dayTwoL + "°F";
    showDayTwoHumid.textContent = "Humidity: " + dayTwoHumid + "%";
    dayTwoIcon = data.list[1].weather[0].icon;
    var dayTwoImg = "http://openweathermap.org/img/wn/" + dayTwoIcon + ".png"
@@ -162,7 +165,7 @@ function getWeather() {
 
    showDayThreeDate.textContent = date;
    showDayThreeH.textContent = "High: " + dayThreeH + "°F";
-   showDayThreeL.textContent = "Low: " + dayThreeL + "%";
+   showDayThreeL.textContent = "Low: " + dayThreeL + "°F";
    showDayThreeHumid.textContent = "Humidity: " + dayThreeHumid + "%";
    dayThreeIcon = data.list[2].weather[0].icon;
    var dayThreeImg = "http://openweathermap.org/img/wn/" + dayThreeIcon + ".png"
@@ -170,7 +173,7 @@ function getWeather() {
 
    showDayFourDate.textContent = date;
    showDayFourH.textContent = "High: " + dayFourH + "°F";
-   showDayFourL.textContent = "Low: " + dayFourL + "%";
+   showDayFourL.textContent = "Low: " + dayFourL + "°F";
    showDayFourHumid.textContent = "Humidity: " + dayFourHumid + "%";
    dayFourIcon = data.list[3].weather[0].icon;
    var dayFourImg = "http://openweathermap.org/img/wn/" + dayFourIcon + ".png"
@@ -178,13 +181,10 @@ function getWeather() {
 
    showDayFiveDate.textContent = date;
    showDayFiveH.textContent = "High: " + dayFiveH + "°F";
-   showDayFiveL.textContent = "Low: " + dayFiveL + "%";
+   showDayFiveL.textContent = "Low: " + dayFiveL + "°F";
    showDayFiveHumid.textContent = "Humidity: " + dayFiveHumid + "%";
    dayFiveIcon = data.list[4].weather[0].icon;
    var dayFiveImg = "http://openweathermap.org/img/wn/" + dayFiveIcon + ".png"
    showDayFiveIcon.setAttribute('src', dayFiveImg);
    })
 };
-
-
-// API for geocoding https://opencagedata.com/

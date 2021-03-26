@@ -23,3 +23,15 @@
     color: white;  
     padding: 10px;
 }
+
+.uvLow {
+    background-color: rgb(37, 200, 37)
+}
+
+.uvMod {
+    background-color: yellow;
+}
+
+.uvSev {
+    background-color: red;
+}

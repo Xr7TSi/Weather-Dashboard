@@ -71,7 +71,7 @@ function getWeather() {
    currentIcon = data.weather[0].icon;
     
    showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
-   showCurrentHumid.textContent = "humidity: " + currentHumid + "%";
+   showCurrentHumid.textContent = "Humidity: " + currentHumid + "%";
    showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
    
    var iconImg = "http://openweathermap.org/img/wn/" + currentIcon + ".png"
@@ -81,16 +81,22 @@ function getWeather() {
    var oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?&lat=" + cityLat + "&lon=" + cityLon + "&appid=802248b8a798a6e1e59be31a4560e2ec";
    
     
-   fetch(oneCallUrl) 
+  fetch(oneCallUrl) 
   .then(function (response) {
   return response.json();
   })
   .then(function (data) {
     currentUv = data.current.uvi
-    showCurrentUv.textContent= currentUv 
-  })
-
-})
+    showCurrentUv.textContent= "UV Index " + currentUv; 
+    if (currentUv < 3) {
+      document.getElementById("showCurrentUv").classList.add("uvLow");
+    } else if (currentUv < 6) {
+      document.getElementById("showCurrentUv").classList.add("uvMod");
+    } else {
+      document.getElementById("showCurrentUv").classList.add("uvSev");
+    };
+  });
+});
  
 
  // api for forecast

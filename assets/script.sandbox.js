@@ -3,6 +3,7 @@ var currentTemp;
 var currentHumid;
 var currentWind;
 var currentUv;
+var location;
 
 // forecast variables
 var dayOneTempH;
@@ -21,7 +22,6 @@ var dayFiveTempH;
 var dayFiveTempL;
 var dayFiveHumid;
 
-var location;
 var date;
 
 var searchBtn = $("#searchBtn");
@@ -32,6 +32,13 @@ var searchBtn = $("#searchBtn");
     date = moment().format('l');
     showDate.textContent = date;
 });
+
+// pulls last selected city from local storage on page load and displays data for last selected city
+selectedCityLs = localStorage.getItem("searchedCity");
+selectedCity = selectedCityLs 
+console.log(selectedCity);
+showCity.textContent = selectedCity;
+getWeather()
 
 
 // sets user input to var selectedCity, displays selected city, creates search history ul runs getWeather function
@@ -48,7 +55,8 @@ searchBtn.on('click', function () {
     showCity.textContent = ul.textContent,
     selectedCity = showCity.textContent,
     getWeather();
-  })
+  });
+  localStorage.setItem("searchedCity", ul.textContent);
   searchHist.appendChild(ul);
   getWeather();
 }); 
@@ -63,21 +71,24 @@ function getWeather() {
    return response.json();
  })
  .then(function (data) {
+  //  sets variables for current weather data plus coordinates for use in uv index
    cityLon = data.coord.lon;
    cityLat = data.coord.lat;
    currentTemp = data.main.temp.toFixed(0);
    currentHumid = data.main.humidity;
    currentWind = data.wind.speed.toFixed(0);
    currentIcon = data.weather[0].icon;
-    
+
+  //displays current weather data 
    showCurrentTemp.textContent = "Temperature: " + currentTemp + "°F" ;
    showCurrentHumid.textContent = "Humidity: " + currentHumid + "%";
    showCurrentWind.textContent = "Wind Speed: " + currentWind + "mph";
-   
+
+  // displays current weather icon 
    var iconImg = "http://openweathermap.org/img/wn/" + currentIcon + ".png"
    showCurrentIcon.setAttribute('src', iconImg);
 
-    // api call, includes uv index
+  // api call for uv index
   var oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?&lat=" + cityLat + "&lon=" + cityLon + "&appid=802248b8a798a6e1e59be31a4560e2ec";
     
   fetch(oneCallUrl) 
@@ -85,17 +96,22 @@ function getWeather() {
   return response.json();
   })
   .then(function (data) {
-    currentUv = data.current.uvi
+
+    // sets uv index variable from api call
+    currentUv = data.current.uvi.toFixed(1)
+
+    // displays current uv index
     showCurrentUv.textContent= "UV Index " + currentUv; 
+
+    // determines uv index display background color
     if (currentUv < 3) {
       document.getElementById("showCurrentUv").setAttribute("style","background-color: rgb(37, 200, 37)");
     } else if (currentUv < 6) {
       document.getElementById("showCurrentUv").setAttribute("style","background-color: yellow");
     } else {
-      document.getElementById("showCurrentUv").setAttribute("style", "background-color: red");
+      document.getElementById("showCurrentUv").setAttribute("style","background-color: red");
     };
   });
-
 });
 
  // api for forecast
@@ -106,6 +122,8 @@ function getWeather() {
    return response.json();
  })
  .then(function (data) {
+  
+  // sets weather data as variables from api call
    dayOneH = data.list[0].main.temp_max.toFixed(0);
    dayOneL = data.list[0].main.temp_min.toFixed(0);
    dayOneHumid = data.list[0].main.humidity;
@@ -125,6 +143,7 @@ function getWeather() {
    dayFiveL = data.list[4].main.temp_min.toFixed(0);
    dayFiveHumid = data.list[4].main.humidity;
 
+  //  displays weather data
    showDayOneDate.textContent = date;
    showDayOneH.textContent = "High: " + dayOneH + "°F";
    showDayOneL.textContent = "Low: " + dayOneL + "%";
@@ -168,6 +187,4 @@ function getWeather() {
 };
 
 
-// getWeather api key = 4b37cdd7653dfc3582c009509a56e3eb
-// getForecast api key = 279105e2e4e9e82f777d589c68abec56
-
+// API for geocoding https://opencagedata.com/

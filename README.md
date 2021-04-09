@@ -1,6 +1,6 @@
 # Weather-Dashboard
 
-This application provides the user with current weather and a five day forecast for a location they have chosen.  Search entries can include city, state and country.
+Weather Dashboard provides the user with current weather and a five day forecast for a location they have chosen.  Search entries can include city, state and country.
 
 The user's search history is presented as clickable buttons that return weather for the city selected.
 

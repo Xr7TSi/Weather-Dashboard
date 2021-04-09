@@ -1,8 +1,12 @@
 # Weather-Dashboard
 
-This application provides the user with weather data based on their search entry.  Search entries can include city, state and country.
-User's recent search history is saved as clickable buttons that return weather data for the city selected.
-User's last searched city is saved in local storage and presented at page load. 
+This application provides the user with current weather and a five day forecast for a location they have chosen.  Search entries can include city, state and country.
+
+The user's search history is presented as clickable buttons that return weather for the city selected.
+
+The user's last searched city is saved in local storage and presented at page load.
+
+Weather-Dashboard uses an Application Program Interface (API), JavaScript, HTML, CSS, Local Storage and Moment.
 
 [Go to Weather-Dashboard](https://xr7tsi.github.io/Weather-Dashboard/)
 

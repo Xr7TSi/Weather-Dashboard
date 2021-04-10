@@ -8,12 +8,12 @@ The user's last searched city is saved in local storage and presented at page lo
 
 Weather-Dashboard uses an Application Program Interface (API), JavaScript, HTML, CSS, Local Storage and Moment.
 
-Created by Jonathan Rein https://github.com/Xr7TSi
-
 [Go to Weather-Dashboard](https://xr7tsi.github.io/Weather-Dashboard/)
 
-![work day scheduler demo](./assets/Weather-Dashboard.png)
-![work day scheduler demo](./assets/Weather-Dashboard-Search-History-Resize.png)
+![Weather-Dashboards demo](./assets/Weather-Dashboard.png)
+![Weather-Dashboard demo](./assets/Weather-Dashboard2.png)
+
+Created by Jonathan Rein https://github.com/Xr7TSi
 
 ## License
 [MIT](MIT License
